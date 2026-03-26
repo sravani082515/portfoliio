@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sravani shyamala  — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a12;
+      --card: #0f0f1a;
+      --primary: #6366f1;
+      --accent: #22d3ee;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #1e1e2e;
+      --radius: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--text); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+    nav ul a:hover { color: var(--text); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+
+    /* HERO */
+    #hero { padding-top: 7rem; padding-bottom: 7rem; }
+    #hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+    #hero h1 span { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #hero .tagline { color: var(--muted); font-size: 1.2rem; max-width: 600px; margin-bottom: 2.5rem; }
+    #hero .cta { display: inline-block; background: var(--primary); color: #fff; padding: 0.85rem 2rem; border-radius: var(--radius); font-weight: 600; transition: opacity 0.2s; }
+    #hero .cta:hover { opacity: 0.85; color: #fff; }
+
+    /* SECTION TITLES */
+    .section-title { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .section-title span { color: var(--primary); }
+    .divider { width: 60px; height: 4px; background: linear-gradient(to right, var(--primary), var(--accent)); border-radius: 99px; margin-bottom: 3rem; }
+
+    /* ABOUT */
+    #about p { color: var(--muted); font-size: 1.05rem; max-width: 720px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+    .skill-group h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .project-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; }
+    .project-card p { color: var(--muted); font-size: 0.9rem; flex-grow: 1; }
+    .project-links { display: flex; gap: 1.5rem; margin-top: 0.5rem; font-size: 0.9rem; font-weight: 600; }
+
+    /* TAGS */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { background: rgba(99,102,241,0.12); color: var(--accent); font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 99px; font-weight: 500; }
+
+    /* CONTACT */
+    #contact .info { display: flex; flex-direction: column; gap: 1rem; }
+    #contact .info-item { display: flex; align-items: center; gap: 0.75rem; color: var(--muted); }
+    #contact .info-item span { font-weight: 600; color: var(--text); }
+    .socials { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+    .socials a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
+    .socials a:hover { color: var(--primary); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+      .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Sravani shyamala </span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <h1>Hi, I'm <span>Sravani shyamala </span></h1>
+  <p class="tagline">Future Software Engineer | AI Enthusiast</p>
+  <a href="#projects" class="cta">View Projects →</a>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About <span>Me</span></h2>
+  <div class="divider"></div>
+  <p>I am a passionate and motivated Computer Science student with a strong interest in building real-world applications using AI and software development. I enjoy solving problems and turning ideas into practical solutions through code.
+
+I have worked on projects like an AI-based interviewer, a glaucoma disease detection system, and SmartPick, a platform for comparing prices across different services. These projects reflect my interest in combining technology with real-world impact.
+
+I am currently focusing on strengthening my skills in Data Structures and Algorithms, along with improving my knowledge in core subjects like Operating Systems and Web Development to prepare for placements.
+
+I am always eager to learn new technologies, improve my problem-solving skills, and build innovative solutions that make a difference.
+</p>
+</section>
+
+
+<section id="skills">
+  <h2 class="section-title">My <span>Skills</span></h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Programming Languages</h3>
+      <div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span></div>
+    </div>
+  
+    <div class="skill-group">
+      <h3>Web Development</h3>
+      <div class="tags"><span class="tag">HTML CSS JavaScript</span></div>
+    </div>
+  
+    <div class="skill-group">
+      <h3>AI / Machine Learning</h3>
+      <div class="tags"><span class="tag">Machine Learning Basics Image Processing TensorFlow / Keras</span></div>
+    </div>
+  
+    <div class="skill-group">
+      <h3>Computer Science</h3>
+      <div class="tags"><span class="tag">Data Structures & Algorithms Operating Systems DBMS</span></div>
+    </div>
+  
+    <div class="skill-group">
+      <h3>Tools & Platforms</h3>
+      <div class="tags"><span class="tag">GITHUB</span><span class="tag">visual studio code</span></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="projects">
+  <h2 class="section-title">Featured <span>Projects</span></h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>Glaucoma Disease Detection</h3>
+      <p>A machine learning-based application that analyzes retinal images to detect glaucoma, enabling early diagnosis through image processing and predictive modeling.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">TensorFlow</span><span class="tag">Keras</span></div>
+      <div class="project-links">
+        <a href="https://github.com/sravani082515/Glaucoma-disease-detection" target="_blank">GitHub →</a>
+        
+      </div>
+    </div>
+  
+    <div class="project-card">
+      <h3>AI-Based Interviewer</h3>
+      <p>An AI-powered interviewer that conducts mock interviews using voice and text, generates dynamic questions, and provides real-time feedback based on user response</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Gemini API</span></div>
+      <div class="project-links">
+        <a href="https://github.com/sravani082515/AI-Based Interviewer" target="_blank">GitHub →</a>
+        
+      </div>
+    </div>
+  
+    <div class="project-card">
+      <h3>SmartLibrary Management System</h3>
+      <p>A role-based library system that allows users to manage books, issue/return items, and handle authentication for admins and students.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span></div>
+      <div class="project-links">
+        <a href="https://github.com/sravani082515/Minibook-management" target="_blank">GitHub →</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h2 class="section-title">Get In <span>Touch</span></h2>
+  <div class="divider"></div>
+  <div class="info">
+    <div class="info-item">📧 <span>shyamalasravani12@gmail.com</span></div>
+    <div class="info-item">📞 <span>8367252553</span></div>
+    <div class="info-item">📍 <span>Hyderabad</span></div>
+  </div>
+  <div class="socials">
+    <a href="https://github.com/sravani082515" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sravani-shyamala-a41737348?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+    
+  </div>
+</section>
+
+<footer>
+  <p>Built with ❤️ — Portfolio by Sravani shyamala </p>
+</footer>
+
+<script src="https://replit-cdn.com/replit-pill/replit-pill.global.js" data-repl-id="910f9e96-dfc9-41ef-8b32-23bc28176af9"></script></body>
+</html>
